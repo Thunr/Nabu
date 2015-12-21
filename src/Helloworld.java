@@ -1,3 +1,5 @@
+import topcoder.ABoardGame;
+
 
 public class Helloworld {
 
@@ -5,8 +7,8 @@ public class Helloworld {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		ABoardGame.whoWins(args);
 	}
 
 }
