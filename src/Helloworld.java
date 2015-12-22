@@ -1,4 +1,5 @@
 import topcoder.ABoardGame;
+import topcoder.AlmostPrimeNumbers;
 
 
 public class Helloworld {
@@ -7,8 +8,9 @@ public class Helloworld {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		ABoardGame.whoWins(args);
+		String[] sisend = {".....A","......","..A...","...B..","......","......"};
+		int sisend2 = 200;
+		AlmostPrimeNumbers.getNext(sisend2);
 	}
 
 }

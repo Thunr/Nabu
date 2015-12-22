@@ -22,14 +22,13 @@ public class ABoardGame {
 			}
 		}
 		int n = boardLength/2;
-		for(int a = 1; a < n + 1;a++){
-			int sum = 0;
-			
+		int sum = 0;
+		for(int a = 1; a < n + 1;a++){			
 			for (int i = n - a;i<n+a;i++){
 				for (int j = n - a;j<n+a;j++){
 					Log("region "+a);
 					Log("row:"+i+" column:"+j+" value: "+boardMap[i][j]);
-					sum =+ boardMap[i][j];
+					sum = sum + boardMap[i][j];
 				}
 			}
 			
@@ -38,7 +37,7 @@ public class ABoardGame {
 				return "Alice";
 			}
 			else if (sum < 0){
-				Log("Bob");
+				Log("Bob"+sum);
 				return "Bob";
 			}
 		}
