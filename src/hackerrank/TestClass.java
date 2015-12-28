@@ -16,6 +16,13 @@ public class TestClass {
 		
 		monthData.get(kalender.get(Calendar.MONTH)-1).add(450);
 		l.logInt(monthData.get(9).get(0));
+		
+		Integer n = 4;
+		String s = "AAA";
+		String d = "BB";
+		int x = s.compareTo(d);
+		char[] rr= d.toCharArray();
+		char f = rr[0];
 
 	}
 	
@@ -26,5 +33,9 @@ public class TestClass {
 		}
 		return list;
 	}
+	
+	static String capitalizeFirst(String s){
+        return s.substring(0)+s.substring(1, s.length());
+    }
 
 }
