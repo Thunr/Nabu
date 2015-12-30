@@ -3,8 +3,6 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
 
-import topcoder.ABoardGame;
-
 public class Scores {
 	
 	public static void main(String[] args) {
