@@ -1,12 +1,10 @@
-package hackerrank.algorithms;
+package hackerrank.mathemathics.fundamentals;
 import java.util.Scanner;
-public class CavityMap {
+public class SherlockAndDivisors {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		int n = sc.nextInt();
-		String s = "swag";
-		
+		// TODO Auto-generated method stub
 
 	}
 }
