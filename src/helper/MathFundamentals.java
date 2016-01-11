@@ -10,7 +10,18 @@ public class MathFundamentals {
 		return findGreatestCommonDivider(b, a%b);
 	}
 	
-	//Finds factorial of N
+	//Finds N choose k
+	static void nChooseK(){
+		for (int n = 0; n < 10; n++) {
+	        int nCk = 1;
+	        for (int k = 0; k <= n; k++) {
+	            System.out.print(nCk + " ");
+	            nCk = nCk * (n-k) / (k+1);
+	        }
+	        System.out.println();
+	    }
+	}
+	
 	
 	
 }
