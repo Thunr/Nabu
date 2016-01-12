@@ -20,6 +20,8 @@ public class EulersCriterion {
 			BigInteger residue = a.modPow(exponent, m);
 			if( residue.longValue() == 1)
 				System.out.println("YES");
+			else if (a.longValue() == 0)
+				System.out.println("YES");
 			else
 				System.out.println("NO");
 		
