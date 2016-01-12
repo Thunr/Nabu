@@ -6,31 +6,35 @@ import java.util.TreeSet;
 import java.util.Scanner;
 public class ManasaAndStones {
 	static Scanner sc = new Scanner(System.in);
-	static SortedSet<Integer> endings = new TreeSet<Integer>();
 
 	public static void main(String[] args) {
 		int T = sc.nextInt();
 		while (T > 0) {
-			endings.clear();
 			int n = sc.nextInt();
 			int a = sc.nextInt();
 			int b = sc.nextInt();
-			findPath(a, b, n, 0);
-			for(Integer i : endings)
-				System.out.print(i + " ");
-
+			int smaller = 0;
+			int bigger = 0;
+			if(a==b){
+				System.out.print((n-1)*a);
+			}			
+			else{
+				if(a>b){
+					smaller = b;
+					bigger = a;
+				}
+				else{
+					smaller = a;
+					bigger = b;
+				}
+				int base = (n-1)*smaller;
+				int difference = bigger - smaller;
+				for (int i = 0; i<n;i++)
+					System.out.print(base + (difference * i)+" ");
+					
+			}
 			System.out.println();
 			T--;
-		}
-	}
-	
-	public static void findPath(int a, int b, int n, int sum){
-		if(n==1)
-			endings.add(sum);
-		else{
-			n--;
-			findPath(a, b, n, sum+a);
-			findPath(a, b, n, sum+b);
 		}
 	}
 }
