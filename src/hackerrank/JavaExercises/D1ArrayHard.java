@@ -31,7 +31,6 @@ public class D1ArrayHard {
 		}		
 	}
 	static void canWin(int Index, int[] arr, int m){
-		System.out.println("Currently at index "+Index+" , m value is "+m);
 		if(Index + m >= arr.length || Index + 1 >= arr.length){
 			canWin = true;
 		}
