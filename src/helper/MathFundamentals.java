@@ -39,5 +39,21 @@ public class MathFundamentals {
 	static BigInteger factorial(int n) { return recfact(1, n); }
 	
 	
+	//insertionsort
+	public static int[] insertionSortPart2(int[] ar)
+    {       
+		for(int i = 1;i<ar.length;i++){
+			int sortedNumber = ar[i];
+			int index = i;
+			while(index>0&&sortedNumber<=ar[index-1]){
+				ar[index] = ar[index-1];
+				index--;
+			}
+			ar[index] = sortedNumber;
+		}
+		return ar;
+    } 
+	
+	
 	
 }
