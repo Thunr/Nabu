@@ -6,12 +6,14 @@ import java.util.regex.Pattern;
 
 public class DuplicateWords
 {
-    public static void main(String[] args){
+    private static Scanner in;
+
+	public static void main(String[] args){
 
         String pattern = ""; //suvaline arv a-z sümboleid, piiravad tühikud
         Pattern r = Pattern.compile("X korda"+pattern, 0);
 
-        Scanner in = new Scanner(System.in);
+        in = new Scanner(System.in);
         int testCases = Integer.parseInt(in.nextLine());
         while(testCases>0){
             String input = in.nextLine();
