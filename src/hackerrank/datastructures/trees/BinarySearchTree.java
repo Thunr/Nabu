@@ -17,6 +17,7 @@ public class BinarySearchTree <T extends Comparable<T>>{
 		T data;
 		Node left;
 		Node right;
+		int height = 0; //for self-balancing insertion and deletion
 		
 		Node(T data){
 			this.data = data;
@@ -70,5 +71,69 @@ public class BinarySearchTree <T extends Comparable<T>>{
 				nodes.add(removedNode.right);
 			System.out.print(removedNode.data+" ");
 		}
+	}
+	
+	public void balancingInsert(Node n, T data){
+		//insert Node
+		//retrace back towards root, if |left.height - right.height|>1, rotate
+		//end when height of node = 0 (root);
+		
+		if(data.compareTo(n.data)<=0)
+			if(n.left==null)
+				n.left = new Node(data);
+			else{
+				balancingInsert(n.left, data);
+				if(getHeightFactor(n)==2){
+					if(getHeightFactor(n.left)<0){
+						Node temp = n.left.right;
+						n.left.right = temp.left;
+						temp.left = n.left;
+						n.left = temp;
+					}
+					Node temp = n;
+					n = n.left;
+					temp.left = n.right;
+					n.right = temp;
+				}
+			}				
+		else
+			if(n.right==null)
+				n.right = new Node(data);
+			else{
+				balancingInsert(n.right, data);
+				if(getHeightFactor(n)==-2){
+					if(getHeightFactor(n.right)>0){
+						Node temp = n.right.left;
+						n.right.left = temp.right;
+						temp.right = n.right;
+						n.right = temp;
+					}
+					Node temp = n;
+					n = n.right;
+					temp.right = n.left;
+					n.left = temp;
+				}
+			}
+		setHeight(n.left);
+		setHeight(n.right);
+		setHeight(n);
+	}
+	private int getHeightFactor(Node n){
+		if(n.right==null&&n.left.height==1)
+			return 2;
+		else if(n.left==null&&n.right.height==1)
+			return -2;
+		else
+			return n.left.height-n.right.height;
+	}
+	private void setHeight(Node n){
+		if(n==null)
+			return;
+		if(n.right==null)
+			n.height = n.left.height + 1;
+		else if(n.left == null)
+			n.height = n.right.height + 1;
+		else
+			n.height = Math.max(n.right.height, n.left.height) + 1;
 	}
 }
