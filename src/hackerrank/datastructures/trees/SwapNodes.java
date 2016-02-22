@@ -32,7 +32,4 @@ public class SwapNodes {
 		int N = sc.nextInt();
 	}
 	
-	private Node insertNode(Node root){
-		if(root==null)
-	}
 }
