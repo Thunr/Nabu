@@ -1,33 +1,52 @@
 package hackerrank.datastructures.graphs;
 
 import java.util.LinkedList;
-import java.util.Map;
+import java.util.Queue;
 
 
 public abstract class Graph{
 	Vertex[] vertices;
-	Map<Vertex, LinkedList<Edge>> adjacencyList;
 	
 	public Graph(int numberOfVertices){
 		vertices = new Vertex[numberOfVertices];
 	}
 	
-	abstract protected void AddEdge(int index1, int index2);
-}
-
-class Edge{
-	Vertex start, end;
-	Edge(Vertex start, Vertex end){
-		this.start = start;
-		this.end = end;
+	public abstract void AddEdge(int startIndex, int endIndex, int weight);
+	
+	public int findShortestRoute(int startIndex, int endIndex, boolean isWeighted){
+		return -1;
+	}
+	
+	int breathFirstSearch(int startIndex, int endIndex){
+		int distance = 0;
+		Queue<Edge> q = new LinkedList<>();
+		return -1;
 	}
 }
 
-class WeightedEdge extends Edge{
+class Edge{
+	int startIndex, endIndex;
 	int weight;
-	WeightedEdge(Vertex start, Vertex end, int weight) {
-		super(start, end);
+	Edge(int startIndex, int endIndex, int weight){
+		this.startIndex = startIndex;
+		this.endIndex = endIndex;
 		this.weight = weight;
+	}
+	int traverseEdge(int startIndex){
+		if(this.startIndex==startIndex)
+			return endIndex;
+		else
+			return this.startIndex;
+	}
+}
+
+class directedEdge extends Edge{
+	directedEdge(int startIndex, int endIndex, int weight) {
+		super(startIndex, endIndex, weight);
+	}
+	@Override
+	int traverseEdge(int startIndex){
+		return endIndex;
 	}
 }
 
