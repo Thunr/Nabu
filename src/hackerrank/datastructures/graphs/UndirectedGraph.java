@@ -11,4 +11,11 @@ public class UndirectedGraph extends Graph {
 		vertices[startIndex].addEdge(e);
 		vertices[endIndex].addEdge(e);
 	}
+	
+	@Override
+	public void AddEdge(int startIndex, int endIndex) {
+		Edge e = new Edge(startIndex, endIndex);
+		vertices[startIndex].addEdge(e);
+		vertices[endIndex].addEdge(e);
+	}
 }

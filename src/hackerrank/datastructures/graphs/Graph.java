@@ -12,6 +12,7 @@ public abstract class Graph{
 	}
 	
 	public abstract void AddEdge(int startIndex, int endIndex, int weight);
+	public abstract void AddEdge(int startIndex, int endIndex);
 	
 	public int findShortestRoute(int startIndex, int endIndex, boolean isWeighted){
 		return -1;
@@ -20,6 +21,11 @@ public abstract class Graph{
 	int breathFirstSearch(int startIndex, int endIndex){
 		int distance = 0;
 		Queue<Edge> q = new LinkedList<>();
+		q.addAll(vertices[startIndex].getEdges());
+		while(!q.isEmpty()){
+			
+		}
+		
 		return -1;
 	}
 }
@@ -32,7 +38,11 @@ class Edge{
 		this.endIndex = endIndex;
 		this.weight = weight;
 	}
-	int traverseEdge(int startIndex){
+	Edge(int startIndex, int endIndex){
+		this(startIndex, endIndex, 1);
+	}
+	
+	protected int traverseEdge(int startIndex){
 		if(this.startIndex==startIndex)
 			return endIndex;
 		else
@@ -44,8 +54,13 @@ class directedEdge extends Edge{
 	directedEdge(int startIndex, int endIndex, int weight) {
 		super(startIndex, endIndex, weight);
 	}
+	
+	directedEdge(int startIndex, int endIndex) {
+		super(startIndex, endIndex);
+	}
+
 	@Override
-	int traverseEdge(int startIndex){
+	protected int traverseEdge(int startIndex){
 		return endIndex;
 	}
 }
@@ -54,6 +69,7 @@ class Vertex{
 	boolean isVisited;
 	LinkedList<Edge> edges;
 	Vertex(){
+		isVisited = false;
 	}
 	void setVisited(){
 		isVisited = true;
@@ -67,16 +83,7 @@ class Vertex{
 	void addEdge(Edge newEdge){
 		edges.add(newEdge);
 	}
-}
-
-class DataVertex<T> extends Vertex{
-	T data;
-	DataVertex(T data) {
-		super();
-		this.data = data;
-	}
-	
-	T getData(){
-		return data;
+	LinkedList<Edge> getEdges(){
+		return edges;
 	}
 }
