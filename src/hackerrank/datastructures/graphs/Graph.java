@@ -68,8 +68,10 @@ class directedEdge extends Edge{
 class Vertex{
 	boolean isVisited;
 	LinkedList<Edge> edges;
+	int distance;
 	Vertex(){
 		isVisited = false;
+		distance = 0;
 	}
 	void setVisited(){
 		isVisited = true;
