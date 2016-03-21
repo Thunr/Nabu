@@ -4,7 +4,7 @@ public class MaximiseSum {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		//take mod M of all members of the Array
+		
 	}
 }
